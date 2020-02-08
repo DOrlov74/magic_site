@@ -1,0 +1,54 @@
+@import './variables.scss';
+
+.header {
+    height: 70px;
+    font-family: $font-family;
+    font-size: $font-size;
+    display: flex;
+    align-items: center;
+    padding: 0 8.3%;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: $menu-text-color;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo__img {
+    content: url(../img/logo.svg);
+    height: 50px;
+    margin-right: 6px;
+}
+
+.header__logo__text {
+    font-family: $logo-font-family;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header__logo__text div:nth-child(2) {
+    font-family: $logo-font-family-bold;
+    font-size: $font-size*1.5;
+}
+
+.header__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: auto;
+    //font-size: $font-size*1.2;
+}
+
+.header__menu div {
+    padding: 10px;
+}
+
+.header__menu div:hover{
+    font-size: $font-size*1.2;
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -1,0 +1,25 @@
+$font-family: 'Cairo', Helvetica;
+$font-family-bold: 'Cairo-bold';
+$font-size: 0.875rem;
+$line-height: 1.5rem;
+$menu-text-color:#5E2901;
+$button-color: #BC9CFF;
+$logo-font-family: 'Comfortaa';
+$logo-font-family-bold: 'Comfortaa-bold';
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: local('Comfortaa'), local('Comfortaa-Regular'), url('./../font/Comfortaa-Regular.woff') format('woff'), url('./../font/Comfortaa-Regular.ttf') format('truetype');
+} 
+@font-face {
+    font-family: 'Comfortaa-bold';
+    src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url('./../font/Comfortaa-Bold.woff') format('woff'), url('./../font/Comfortaa-Bold.ttf') format('truetype');
+} 
+@font-face {
+    font-family: 'Cairo';
+    src: local('Cairo'), local('Cairo-Regular'), url('./../font/Cairo-Regular.woff') format('woff'), url('./../font/Cairo-Regular.ttf') format('truetype');
+} 
+@font-face {
+    font-family: 'Cairo-bold';
+    src: local('Cairo Bold'), local('Cairo-Bold'), url('./../font/Cairo-Bold.woff') format('woff'), url('./../font/Cairo-Bold.ttf') format('truetype');
+} 
