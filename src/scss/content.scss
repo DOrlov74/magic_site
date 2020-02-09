@@ -1,5 +1,7 @@
 .content {
     content: url('../img/background.jpg');
+    position: relative;
     width: 100%;
     min-width: 520px;
+    z-index: -10;
 }

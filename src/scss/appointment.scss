@@ -1,0 +1,24 @@
+@import './variables.scss';
+
+.appointment {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    z-index: 10;
+    background-color: $background-color;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: $font-size;
+}
+.appointment h2{
+    font-family: $font-family-bold;
+    display: inline-block;
+}
+.appointment span {
+    //display: inline-block;
+}
+
+.appointment__form {
+    font-size: $font-size*0.9;
+}
