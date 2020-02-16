@@ -3,9 +3,10 @@
 .footer {
     display: flex;
     color: $menu-text-color;
+    padding-top: 10px;
     border-width: 1px 0 0 ;
-    border-style: solid;
-    border-color: $menu-text-color;
+    //border-style: solid;
+    //border-color: $menu-text-color;
     background-color: $background-color;
 }
 .footer div{

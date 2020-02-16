@@ -1,24 +1,57 @@
 @import './variables.scss';
 
 .appointment {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 100px;
-    left: 20px;
-    z-index: 10;
-    background-color: $background-color;
-    padding: 5px;
+    left: 40px;
+    z-index: 20;
+    background-color: $mark-color;
+    padding: 10px;
     border-radius: 5px;
-    font-size: $font-size;
+    font-size: $font-size*1.2;
+    line-height: $line-height*1.2;
+    color: white;
+    border-style: outset;
+    border-width: 0 3px 3px 0;
 }
 .appointment h2{
     font-family: $font-family-bold;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
 }
-.appointment span {
-    //display: inline-block;
+.appointment h2 img {
+    width: 1.2rem;
+    cursor: pointer;
 }
 
-.appointment__form {
+.appointment__form__name, .appointment__form__data, .appointment__form__hour {
     font-size: $font-size*0.9;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+}
+
+.datePicker {
+    display: flex;
+}
+
+.appointment__form__data img, .appointment__form__hour img {
+    width: 1.2rem;
+    cursor: pointer;
+}
+
+.appointment__form__name label,.appointment__form__data label, .appointment__form__hour label {
+    width: 2rem;
+}
+
+.appointment__form__name input,.appointment__form__data input, .appointment__form__hour input {
+    background-color: $mark-color;
+    color: white;
+    margin: 0 0.5rem 0 1rem;
+    border-width: 0 0 1px 0;
+    width: 8rem;
+    //cursor: pointer;
 }
