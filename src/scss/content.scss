@@ -3,12 +3,13 @@
 .content {
     content: url('../img/background.jpg');
     position: relative;
-    top: 5px;
+    top: 10px;
     left: 10px;
     width: 100%;
     min-width: 520px;
     z-index: 10;
     margin-bottom: -5px;
+    //box-shadow: 0 5px 5px gray;
     //border-width: 0 0 0 16px;
     //border-style: solid;
 }

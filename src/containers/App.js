@@ -3,7 +3,7 @@ import Header from './header';
 //import '../scss/App.scss';
 import Content from './content';
 import Footer from './footer';
-import Appointment from '../components/appointment';
+import Appointment from './appointment';
 
 function App() {
   return (

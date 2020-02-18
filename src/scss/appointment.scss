@@ -13,45 +13,51 @@
     font-size: $font-size*1.2;
     line-height: $line-height*1.2;
     color: white;
-    border-style: outset;
-    border-width: 0 3px 3px 0;
-}
-.appointment h2{
-    font-family: $font-family-bold;
-    display: flex;
-    align-items: center;
-    text-decoration: underline;
-}
-.appointment h2 img {
-    width: 1.2rem;
-    cursor: pointer;
+    //border-style: outset;
+    //border-width: 0 3px 3px 0;
+    box-shadow: 5px 5px 5px grey;
+    h2{
+        font-family: $font-family-bold;
+        display: flex;
+        align-items: center;
+        text-decoration: underline;
+        img {
+            width: 1.2rem;
+            cursor: pointer;
+        }
+        img:hover {
+            width: 1.5rem;
+        }
+    }
 }
 
-.appointment__form__name, .appointment__form__data, .appointment__form__hour {
+.appointment__form__name, .appointment__form__mail, .appointment__form__data, .appointment__form__hour {
     font-size: $font-size*0.9;
     display: flex;
     justify-content: flex-start;
     margin-top: 0.5rem;
+    img {
+        width: 1.2rem;
+        cursor: pointer;
+    }
+    label {
+        width: 2.5rem;
+    }
+    input {
+        background-color: $mark-color;
+        color: white;
+        margin: 0 0.5rem 0 1rem;
+        border-width: 0 0 1px 0;
+        width: 10rem;
+        caret-color: white;
+        //cursor: pointer;
+    }
 }
 
 .datePicker {
     display: flex;
 }
 
-.appointment__form__data img, .appointment__form__hour img {
-    width: 1.2rem;
-    cursor: pointer;
-}
-
-.appointment__form__name label,.appointment__form__data label, .appointment__form__hour label {
-    width: 2rem;
-}
-
-.appointment__form__name input,.appointment__form__data input, .appointment__form__hour input {
-    background-color: $mark-color;
-    color: white;
-    margin: 0 0.5rem 0 1rem;
-    border-width: 0 0 1px 0;
-    width: 8rem;
-    //cursor: pointer;
+.hidden {
+    display: none;
 }

@@ -3,7 +3,8 @@
 .footer {
     display: flex;
     color: $menu-text-color;
-    padding-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     border-width: 1px 0 0 ;
     //border-style: solid;
     //border-color: $menu-text-color;
@@ -16,10 +17,11 @@
     justify-content: space-between;
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid $menu-text-color;
+    //border: 1px solid $menu-text-color;
     border-radius: 5px;
     margin: 5px;
     background-color: white;
+    box-shadow: 5px 5px 5px gray;
 }
 .footer div img{
     width: 20px;
