@@ -8,9 +8,6 @@ import 'jquery-ui-bundle';
 import 'jquery-ui-bundle/jquery-ui.min.css';
 
 export default class DatePicker extends Component {
-    state={
-        selDate: ""
-    };
     componentDidMount(){
         //this.$node=$(this.refs.dateInput);
         $('#dateInput').datepicker({
@@ -24,10 +21,7 @@ export default class DatePicker extends Component {
         });
     };
     setDate=(date)=>{
-        this.setState({
-            selDate: date
-        });
-        console.log(this.state);
+        this.props.onSetDate(date);
     };
     shouldComponentUpdate(){
         return false;
