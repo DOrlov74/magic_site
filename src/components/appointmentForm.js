@@ -26,7 +26,7 @@ const AppointmentForm=({display, onSubmit, onChange, onChangeDate})=>{
             </div>
             <div className={`appointment__form__data ${visibleClass}`}>
                 <label htmlFor="dateInput">Data</label>
-                <DatePicker name="data" 
+                <DatePicker name="data"
                     onSetDate={onChangeDate}/>
             </div>
             <div className={`appointment__form__hour ${visibleClass}`}>

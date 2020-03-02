@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../scss/appointment.scss';
 import 'jquery-ui/themes/base/base.css';
-import expand from '../img/expand.svg';
+//import expand from '../img/expand.svg';
 import calendar from '../img/calendar_white.svg';
 import $ from 'jquery';
 import 'jquery-ui-bundle';
@@ -12,6 +12,7 @@ export default class DatePicker extends Component {
         //this.$node=$(this.refs.dateInput);
         $('#dateInput').datepicker({
             autoSize: true,
+            dateFormat: "yy-mm-dd",
             minDate: 0,
             maxDate: 90,
             onSelect: this.setDate,
