@@ -1,49 +1,102 @@
-import React from 'react';
+import React, {Component} from 'react';
 import clock from '../img/time_white.svg';
 import mail from '../img/mail_white.svg';
+import calendar from '../img/calendar_white.svg';
 import DatePicker from './date-picker';
 
-const AppointmentForm=({display, onSubmit, onChange, onChangeDate})=>{
-    const visibleClass=display?'visible':'hidden';
-    return (
-        <form className={`appointment__form ${visibleClass}`}>
-            <div className={`appointment__form__name`}>
-                <label htmlFor="nameInput">Nome</label>
-                <input type="text" 
-                    id="nameInput"
-                    name="name" 
-                    onBlur={onChange} required>
-                </input>
-            </div>
-            <div className={`appointment__form__mail ${visibleClass}`}>
-                <label htmlFor="mailInput">E-mail</label>
-                <input type="email" 
-                    id="mailInput"
-                    name="email" 
-                    onBlur={onChange} required>
-                </input>
-                <img src={mail} alt="mail"></img>
-            </div>
-            <div className={`appointment__form__data ${visibleClass}`}>
-                <label htmlFor="dateInput">Data</label>
-                <DatePicker name="data"
-                    onSetDate={onChangeDate}/>
-            </div>
-            <div className={`appointment__form__hour ${visibleClass}`}>
-                <label htmlFor="hourInput">Hora</label>
-                <input type="text" 
-                    id="hourInput" 
-                    name="hour"
-                    onBlur={onChange} required>
-                </input>
-                <img src={clock} alt="clock"></img>
-            </div>
-            <button className={`appointment__form__submit-button ${visibleClass}`} 
-                onClick={onSubmit}>
-                Enviar
-            </button>
-        </form>
-    );
+class AppointmentForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state={displayDatePicker: false};
+    };
+   
+    onCalendarClick=()=>{
+        this.setState({displayDatePicker: true});
+        console.log('in onCalendarClick', this.state);
+    };
+    onDateChange=(date)=>{
+        const dateInput=document.querySelector('#dateInput');
+        dateInput.innerHTML=date;
+        this.props.onChangeDate(date);
+        this.setState({displayDatePicker: false});
+    };
+    render(){
+        const {displayForm, 
+            onSubmit, 
+            onBlur, 
+            onChange,  
+            value, 
+            error}=this.props;
+        const visibleFormClass=displayForm?'visible':'hidden';
+        return (
+            <form 
+                onSubmit={onSubmit}
+                className={`appointment__form ${visibleFormClass}`}>
+                <div className={`appointment__form__name`}>
+                    <label htmlFor="nameInput">Nome</label>
+                    <input type="text" 
+                        id="nameInput"
+                        name="name" 
+                        value={value.name}
+                        onBlur={onBlur}
+                        onChange={onChange} required>
+                    </input>
+                </div>
+                <label className="error">
+                    {error.name?error.name:""}
+                </label>
+                <div className={`appointment__form__mail`}>
+                    <label htmlFor="mailInput">E-mail</label>
+                    <input type="email" 
+                        id="mailInput"
+                        name="email" 
+                        value={value.email}
+                        onBlur={onBlur}
+                        onChange={onChange} 
+                        required>
+                    </input>
+                    <img src={mail} alt="mail"></img>
+                </div>
+                <label className="error">
+                    {error.email?error.email:""}
+                </label>
+                <div className={`appointment__form__data`}>
+                    <label htmlFor="dateInput">Data</label>
+                    <label id="dateInput"
+                        onClick={this.onCalendarClick}></label>
+                    <img src={calendar} alt="calendar" 
+                        onClick={this.onCalendarClick}></img>
+                    {this.state.displayDatePicker?
+                    <DatePicker 
+                        onChange={this.onDateChange}/>:''}
+                </div>
+                <label className="error">
+                    {error.date?error.date:""}
+                </label>
+                <div className={`appointment__form__hour`}>
+                    <label htmlFor="hourInput">Hora</label>
+                    <input type="text" 
+                        id="hourInput" 
+                        name="hour"
+                        value={value.hour}
+                        onBlur={onBlur}
+                        onChange={onChange} required>
+                    </input>
+                    <img src={clock} alt="clock"></img>
+                </div>
+                <label className="error">
+                    {error.hour?error.hour:""}
+                </label>
+                <button 
+                    type="submit"
+                    className={`appointment__form__submit-button`} 
+                    //onClick={onSubmit}
+                    >
+                    Enviar
+                </button>
+            </form>
+        );
+    };
 };
 
 export default AppointmentForm;
