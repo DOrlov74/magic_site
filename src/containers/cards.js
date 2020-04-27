@@ -4,9 +4,9 @@ import timeImg from '../img/time.svg';
 import telImg from '../img/phone.svg';
 import mailImg from '../img/mail.svg';
 import locImg from '../img/place.svg';
-import '../scss/footer.scss';
+import '../scss/cards.scss';
 
-class Footer extends Component{
+class Cards extends Component{
     infoData=[
         {"name": "Time",
             "img": {timeImg},
@@ -29,7 +29,7 @@ class Footer extends Component{
     ];
     render(){
         return (
-            <footer className='footer'>
+            <div className='cards'>
                 {this.infoData.map((el, i)=>
                 <InfoBlock 
                 key={i}
@@ -37,10 +37,10 @@ class Footer extends Component{
                 img={Object.values(el.img)}
                 title={el.title}
                 text={el.text}
-                parent='footer'/>)}
-            </footer>
+                parent='cards'/>)}
+            </div>
         );
     };
 };
 
-export default Footer;
+export default Cards;

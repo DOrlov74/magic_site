@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './header';
 //import '../scss/App.scss';
 import Content from './content';
-import Footer from './footer';
+import Cards from './cards';
 //import Appointment from './appointment';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Content />
-      <Footer />
+      <Cards />
     </div>
   );
 }

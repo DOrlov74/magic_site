@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+.cards {
+    display: flex;
+    color: $menu-text-color;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    border-width: 1px 0 0 ;
+    //border-style: solid;
+    //border-color: $menu-text-color;
+    background-color: $background-color;
+    max-width: $max-width;
+    margin: 0 auto;
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        flex-grow: 1;
+        padding: 10px;
+        //border: 1px solid $menu-text-color;
+        border-radius: 5px;
+        margin: 5px;
+        background-color: white;
+        box-shadow: 5px 5px 5px gray;
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+        img{
+            width: 20px;
+            padding-bottom: 5px;
+            color: $menu-text-color;
+        }
+        p {
+            font-size: $font-size*0.8;
+            padding: 3px;
+        }
+        h2{
+            font-family: $font-family-bold;
+        }
+    }
+}
+
+
+
