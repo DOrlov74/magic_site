@@ -1,14 +1,19 @@
 @import './variables.scss';
 
 .content {
-    content: url('../img/background.jpg');
-    position: relative;
-    top: 10px;
-    left: 10px;
+    background: url('../img/background.jpg');
+    background-size: cover;
+    //position: relative;
+    //top: 10px;
+    //left: 10px;
     width: 100%;
+    height: 65vh;
+    margin: 0 auto;
     min-width: 520px;
-    z-index: 10;
-    margin-bottom: -5px;
+    max-width: $max-width;
+    //opacity: 0.5;
+    //z-index: 10;
+    //margin-bottom: -5px;
     //box-shadow: 0 5px 5px gray;
     //border-width: 0 0 0 16px;
     //border-style: solid;

@@ -7,11 +7,14 @@ $menu-text-color:#5E2901;
 //$background-color: #D89968;
 //$background-color: #894918;
 //$background-color: #FFCDA7;
-$background-color: #FFEBA4;
+$opacity-color: hsla(0,0%,100%,.3);
+//$background-color: #FFEBA4;
+$background-color: #F2E9D5;
 $accent-color: #B791DA;
 $mark-color: #6188BB;
 $logo-font-family: 'Comfortaa';
 $logo-font-family-bold: 'Comfortaa-bold';
+$max-width: 1200px;
 
 @font-face {
     font-family: 'Comfortaa';

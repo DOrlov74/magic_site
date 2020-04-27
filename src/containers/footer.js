@@ -15,7 +15,7 @@ class Footer extends Component{
             "sabados, domingos e feriados:", "a combinar"]},
         {"name": "Phone",
             "img": {telImg},
-            "title": "Telephone:",
+            "title": "Telefone:",
             "text": ["-"]},
         {"name": "Mail",
             "img": {mailImg},

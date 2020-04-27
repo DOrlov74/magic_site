@@ -13,6 +13,7 @@ export default class Appointment extends Component {
             formDisplay:false,
             fields: {
                 name: "",
+                tel: "",
                 email: "",
                 date: "",
                 hour: ""
@@ -22,6 +23,7 @@ export default class Appointment extends Component {
         this.form=new ReactFormInputValidation(this, { locale: "pt" });
         this.form.useRules({
             name: "required|min:4|max:30",
+            tel: ['required', 'regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g'],
             email: "required|email",
             date: "required",
             hour: "required"
@@ -33,17 +35,27 @@ export default class Appointment extends Component {
             console.log('in onSubmit method', fields);
             const {errors}=this.state.errors;
             console.log('Errors: ', errors);
-            let formValid=false;
-                // if(errors){
-                //     formValid=false;
-                // } else {
-                //     formValid=true;
-                // }
+            let formValid=true;
+            Object.entries(fields).forEach(field=>{
+                field[1].length>0 || (formValid=false);
+                if (!field[1].length>0){
+                    const name=field[0];
+                    this.setState({
+                        ...this.state,
+                        errors:{
+                            ...this.state.errors,
+                            [name]:'please fill this field'
+                        }
+                    });
+                }
+            });
             if (formValid){
                 const form=document.querySelector('.appointment__form');
+                console.log('form is valid', formValid);
                 //add a document to collection
-                db.collection('bookings').add({
+                /* db.collection('bookings').add({
                     name: this.state.fields.name,
+                    tel: this.state.fields.tel,
                     email: this.state.fields.email,
                     date: this.state.fields.date,
                     hour: this.state.fields.hour
@@ -53,9 +65,9 @@ export default class Appointment extends Component {
                     form.reset();
                 }).catch(err=>{
                     console.log('Error writing document:', err.message);
-                });
+                }); */
             } else {
-                console.log('form is not valid');
+                console.log('form is not valid', formValid);
             };
         };
     };
@@ -100,6 +112,10 @@ export default class Appointment extends Component {
             fields:{
                 ...this.state.fields,
                 date:date
+            },
+            errors:{
+                ...this.state.errors,
+                date:''
             }
         });
     };

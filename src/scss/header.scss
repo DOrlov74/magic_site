@@ -6,17 +6,21 @@
     font-size: $font-size;
     display: flex;
     align-items: center;
-    padding: 0 8.3%;
+    //padding: 0 50%;
     //border-width: 0 0 1px;
     //border-style: solid;
     //border-color: $menu-text-color;
     background-color: white;
-    box-shadow: 0 3px 3px gray;
+    //box-shadow: 0 3px 3px gray;
+    max-width: $max-width;
+    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 .header__logo {
     display: flex;
     align-items: center;
+    padding-left: 8.3%;
 }
 
 .header__logo__img {
@@ -43,6 +47,7 @@
     justify-content: flex-end;
     margin-left: auto;
     //font-size: $font-size*1.2;
+    padding-right: 8.3%;
 }
 
 .header__menu div {

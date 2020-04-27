@@ -1,13 +1,15 @@
 @import './variables.scss';
 
 .appointment {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100px;
+    //display: flex;
+    //flex-direction: column;
+    position: relative;
+    width: 16rem;
+    top: 50px;
     left: 40px;
     z-index: 20;
-    background-color: $mark-color;
+    background-color: $opacity-color;
+    overflow: hidden;
     padding: 10px;
     border-radius: 5px;
     font-size: $font-size*1.2;
@@ -15,7 +17,20 @@
     color: white;
     //border-style: outset;
     //border-width: 0 3px 3px 0;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 5px burlywood;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        //background: rgba(255,0,0,.5);   //for debugging
+        background: url('../img/background.jpg');
+        filter: blur(20px);
+        margin: -30px;
+        z-index: -1;
+    }
     h2{
         font-family: $font-family-bold;
         display: flex;
@@ -31,21 +46,25 @@
     }
 }
 
-.appointment__form__name, .appointment__form__mail, .appointment__form__data, .appointment__form__hour {
+.appointment__form__name, 
+.appointment__form__tel,
+.appointment__form__mail, 
+.appointment__form__data, 
+.appointment__form__hour {
     font-size: $font-size*0.9;
     display: flex;
     justify-content: flex-start;
     margin-top: 0.5rem;
     img {
         width: 1.2rem;
-        cursor: pointer;
+        //cursor: pointer;
     }
     label {
         width: 2.5rem;
     }
-    input, #dateInput {
+    input, select, #dateInput {
         font-family: $font-family;
-        background-color: $mark-color;
+        background-color: $opacity-color;
         color: white;
         margin: 0 0.5rem 0 1rem;
         border-width: 0 0 1px 0;
@@ -59,7 +78,7 @@
       }
 }
 
-#dateInput {
+#dateInput, #hourInput {
     cursor: pointer;
 }
 
@@ -76,7 +95,7 @@
     width: 75%;
     margin: 1rem 1rem 0 3rem;
     border-radius: 5px;
-    color: $mark-color;
+    color: $menu-text-color;
     cursor: pointer;
 }
 
