@@ -6,11 +6,12 @@ const MenuList=({parent, menuData})=>{
     return (
         <div className={menuListName}>
             {menuData.map((btn, i)=>
-                <MenuButton 
-                key={i} 
-                name={btn.name} 
-                text={btn.text} 
-                parent={menuListName}/>
+                    <MenuButton 
+                    key={i} 
+                    name={btn.name} 
+                    text={btn.text} 
+                    link={btn.link}
+                    parent={menuListName}/>
             )}
         </div>
     );

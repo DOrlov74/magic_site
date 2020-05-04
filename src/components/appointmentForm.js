@@ -47,7 +47,7 @@ class AppointmentForm extends Component {
                     {error.name?error.name:""}
                 </label>
                 <div className={`appointment__form__tel`}>
-                    <label htmlFor="telInput">Telefone</label>
+                    <label htmlFor="telInput">Telemóvel</label>
                     <input type="text" 
                         id="telInput"
                         name="tel" 

@@ -15,17 +15,17 @@ class Cards extends Component{
             "sabados, domingos e feriados:", "a combinar"]},
         {"name": "Phone",
             "img": {telImg},
-            "title": "Telefone:",
+            "title": "Telemóvel / WhatsApp:",
             "text": ["-"]},
         {"name": "Mail",
             "img": {mailImg},
-            "title": "E-mail:",
-            "text": ["magia@mailinator.com"]},
+            "title": "Feedback:",
+            "text": ["magia"+"@"+"mailinator.com"]},
         {"name": "Location",
             "img": {locImg},
             "title": "Localização:",
             "text": ["Calçada dos Barbadinhos, 117 r/c",
-            "Lisboa, São Vicente"]},
+            "1170-046 Lisboa, São Vicente"]},
     ];
     render(){
         return (

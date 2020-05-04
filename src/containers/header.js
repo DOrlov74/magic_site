@@ -5,17 +5,20 @@ import MenuList from './menu-list';
 
 class Header extends Component {
     menuData=[
-        {"name": "services", "text": "Serviços"},
-        {"name": "gallery", "text": "Espaço"},
-        {"name": "schedule", "text": "Horário"},
-        {"name": "prices", "text": "Preços"},
-        {"name": "contacts", "text": "Contactos"},
+        {"name": "home", "text": "Home", "link": "/"},
+        {"name": "services", "text": "Serviços", "link": "/"},
+        {"name": "gallery", "text": "Espaço", "link": "/"},
+        {"name": "schedule", "text": "Horário", "link": "/"},
+        {"name": "prices", "text": "Preços", "link": "/"},
+        {"name": "contacts", "text": "Contactos", "link": "/"},
     ];
     render(){
     return(
             <header className='header'>
-                <Logo parent='header'/>
-                <MenuList parent='header' menuData={this.menuData} />
+                <div className='header__container'>
+                    <Logo parent='header'/>
+                    <MenuList parent='header' menuData={this.menuData} />
+                </div>
             </header>
         );
     };
