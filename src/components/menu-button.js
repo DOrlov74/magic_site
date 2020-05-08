@@ -12,7 +12,7 @@ const MenuButton=({parent, name, text, link})=>{
     } else {
         return (
             <div className={'btn '+parent+'__'+name}>
-                <Link to={link}>{text}</Link>
+                    <Link to={link}>{text}</Link>
             </div>
         );
     }

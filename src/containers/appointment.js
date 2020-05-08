@@ -10,7 +10,6 @@ export default class Appointment extends Component {
     constructor(props) {
         super(props);
         this.state={
-            formDisplay:false,
             fields: {
                 name: "",
                 tel: "",
@@ -123,11 +122,9 @@ export default class Appointment extends Component {
     render(){
         return (
             <div className="appointment">
-                <h2>Marcações
-                    <img src={expand} alt="expand" onClick={this.toggleVisible}></img>
-                </h2>
+                <h2>Marcações</h2>
                 <AppointmentForm 
-                    displayForm={this.state.formDisplay} 
+                    //displayForm={this.state.formDisplay} 
                     onSubmit={this.form.handleSubmit}
                     //onSubmit={this.onSubmitForm}
                     // onChange={this.onChangeField}

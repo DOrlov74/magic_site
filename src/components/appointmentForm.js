@@ -22,17 +22,17 @@ class AppointmentForm extends Component {
         this.setState({displayDatePicker: false});
     };
     render(){
-        const {displayForm, 
+        const { 
             onSubmit, 
             onBlur, 
             onChange,  
             value, 
             error}=this.props;
-        const visibleFormClass=displayForm?'visible':'hidden';
+        //const visibleFormClass=displayForm?'visible':'hidden';
         return (
             <form 
                 onSubmit={onSubmit}
-                className={`appointment__form ${visibleFormClass}`}>
+                className={`appointment__form`}>
                 <div className={`appointment__form__name`}>
                     <label htmlFor="nameInput">Nome</label>
                     <input type="text" 
@@ -45,7 +45,7 @@ class AppointmentForm extends Component {
                 </div>
                 <label className="error">
                     {error.name?error.name:""}
-                </label>
+                </label>              
                 <div className={`appointment__form__tel`}>
                     <label htmlFor="telInput">Telemóvel</label>
                     <input type="text" 
@@ -104,11 +104,11 @@ class AppointmentForm extends Component {
                     <img src={clock} alt="clock"></img>
                 </div>
                 <label className="error">
-                    {error.hour?error.hour:""}
+                    &nbsp;{error.hour?error.hour:""}
                 </label>
                 <button 
                     type="submit"
-                    className={`appointment__form__submit-button`} 
+                    className={`appointment__form__submit-button btn`} 
                     //onClick={onSubmit}
                     >
                     Enviar
