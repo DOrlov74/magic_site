@@ -3,6 +3,7 @@ import '../scss/appointment.scss';
 import expand from '../img/expand_white.svg';
 //import calendar from '../img/calendar_white.svg';
 import AppointmentForm from '../components/appointmentForm';
+import SignInForm from '../components/signin-form';
 import {db} from '../components/firebase';
 import ReactFormInputValidation from 'react-form-input-validation';
 
@@ -10,10 +11,13 @@ export default class Appointment extends Component {
     constructor(props) {
         super(props);
         this.state={
+            mode: "signup",
             fields: {
                 name: "",
                 tel: "",
                 email: "",
+                password: "",
+                //password_confirmation: "",
                 date: "",
                 hour: ""
             },
@@ -24,6 +28,8 @@ export default class Appointment extends Component {
             name: "required|min:4|max:30",
             tel: ['required', 'regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g'],
             email: "required|email",
+            password: "required|min:6|max:30",
+            //password_confirmation: "required|min:6|max:30",
             date: "required",
             hour: "required"
         });
@@ -119,11 +125,54 @@ export default class Appointment extends Component {
         });
     };
 
+    onSetSignup=()=>{
+        if (this.state.mode!=='signup'){
+            this.setState({
+                ...this.state,
+                mode:'signup'});
+        };
+    };
+
+    onSetLogin=()=>{
+        if (this.state.mode!=='login'){
+            this.setState({
+                ...this.state,
+                mode:'login'});
+        };
+    };
+
+    switchComp(){
+        const classMode=this.state.mode;
+        let title="";
+        let Comp={};
+        switch (classMode) {
+            case "signup":
+                title="Inscreve-se, por favor";
+                Comp=SignInForm;
+            break;
+            case "login":
+                title="Conecte-se, por favor";
+                Comp=SignInForm;
+            break;
+            case "appointment":
+                title="Marcações";
+                Comp=AppointmentForm;
+            break;
+            default:
+                title="Mode error";
+        };
+            return (
+                    {title, Comp}
+            );
+    };
+
     render(){
+        const {title, Comp}=this.switchComp();
+        const classMode=this.state.mode;
         return (
-            <div className="appointment">
-                <h2>Marcações</h2>
-                <AppointmentForm 
+            <div className={classMode}>
+                <h2>{title}</h2>
+                <Comp 
                     //displayForm={this.state.formDisplay} 
                     onSubmit={this.form.handleSubmit}
                     //onSubmit={this.onSubmitForm}
@@ -132,7 +181,10 @@ export default class Appointment extends Component {
                     onBlur={this.form.handleBlurEvent}
                     onChange={this.form.handleChangeEvent}
                     value={this.state.fields}
-                    error={this.state.errors}/>
+                    error={this.state.errors}
+                    mode={this.state.mode}
+                    onSetSignup={this.onSetSignup}
+                    onSetLogin={this.onSetLogin}/>
             </div>
         );
     };
