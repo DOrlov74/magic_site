@@ -6,6 +6,8 @@ import AppointmentForm from '../components/appointmentForm';
 import SignInForm from '../components/signin-form';
 import {db} from '../components/firebase';
 import ReactFormInputValidation from 'react-form-input-validation';
+import {signUp, logIn} from '../components/auth';
+import {auth} from '../components/firebase';
 
 export default class Appointment extends Component {
     constructor(props) {
@@ -38,7 +40,7 @@ export default class Appointment extends Component {
         this.form.onformsubmit = (fields) => {
             //fields.preventDefault();
             console.log('in onSubmit method', fields);
-            const {errors}=this.state.errors;
+            /* const {errors}=this.state.errors;
             console.log('Errors: ', errors);
             let formValid=true;
             Object.entries(fields).forEach(field=>{
@@ -53,10 +55,41 @@ export default class Appointment extends Component {
                         }
                     });
                 }
-            });
-            if (formValid){
-                const form=document.querySelector('.appointment__form');
-                console.log('form is valid', formValid);
+            }); */
+            //if (formValid){
+                const form=document.querySelector(`.${this.state.mode}__form`);
+                const {name, email, password} = this.state.fields;
+                switch (this.state.mode){
+                    case "signup":
+                        {const error= signUp(name, email, password);
+                        this.setState({
+                            ...this.state,
+                            errors:{
+                                ...this.state.errors,
+                                [password]:error
+                                }
+                            });
+                        console.log(this.state);
+                        }
+                        /* {auth.createUserWithEmailAndPassword(email, password)
+                        .then((user)=>{
+                            console.log(user);
+                        })
+                        .catch(err=>{
+                            console.log(err.message);
+                        });} */
+                        break;
+                    case "login":
+                        logIn(email, password);
+                        break;
+                    case "appointment":
+                        {};
+                        break;
+                    default:
+                        {};
+                };
+
+                //console.log('form is valid', formValid);
                 //add a document to collection
                 /* db.collection('bookings').add({
                     name: this.state.fields.name,
@@ -71,9 +104,9 @@ export default class Appointment extends Component {
                 }).catch(err=>{
                     console.log('Error writing document:', err.message);
                 }); */
-            } else {
+            /* } else {
                 console.log('form is not valid', formValid);
-            };
+            }; */
         };
     };
     toggleVisible=()=>{

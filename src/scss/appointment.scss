@@ -20,6 +20,8 @@
         font-family: $logo-font-family-bold;
         font-style: italic;
         margin: 2rem auto;
+        animation: moveInLeft 2s ease-out;
+        animation-fill-mode: both;
     }
     &__form {
         &::before {
@@ -47,6 +49,8 @@
         //border-style: outset;
         border-width: 0 3px 3px 0;
         //box-shadow: 5px 5px 5px burlywood;
+        animation: moveInBottom 2s ease-out;
+        animation-fill-mode: both;
         &__container {
             width: 100%;
             display: flex;
@@ -195,11 +199,15 @@
 }
 
 .error {
-    display: block;
-    height: 1.5rem;
-    color: $error-color;
-    font-size: $font-size;
-    line-height: $line-height;
+    &-name,
+    &-mail,
+    &-pass{
+        display: block;
+        height: 1.5rem;
+        color: $error-color;
+        font-size: $font-size;
+        line-height: $line-height;
+    }
 }
 .shaded {
     color: $light-grey-color;

@@ -1,7 +1,7 @@
 import React from 'react';
 import mail from '../img/mail_white.svg';
 import pass from '../img/key_white.svg';
-import { Fragment } from 'react';
+//import { Fragment } from 'react';
 
 const SignInForm = ({ 
     onSubmit, 
@@ -24,6 +24,20 @@ const SignInForm = ({
                         Log in
                     </div>
                 </div>
+                <div className={`${mode}__form__name ${mode==="signup"?"":"hidden"}`}>
+                    <label htmlFor="mailInput">Nome</label>
+                    <input type="text" 
+                        id="nameInput"
+                        name="name" 
+                        value={value.name}
+                        onBlur={onBlur}
+                        onChange={onChange} 
+                        required>
+                    </input>
+                </div>
+                <label className={`${mode==="signup"?"error-name":"hidden"}`}>
+                    {error.name?error.name:""}
+                </label>
                 <div className={`${mode}__form__mail`}>
                     <label htmlFor="mailInput">E-mail</label>
                     <input type="email" 
@@ -36,7 +50,7 @@ const SignInForm = ({
                     </input>
                     <img src={mail} alt="mail"></img>
                 </div>
-                <label className="error">
+                <label className="error-mail">
                     {error.email?error.email:""}
                 </label>
                 <div className={`${mode}__form__pass`}>
@@ -51,7 +65,7 @@ const SignInForm = ({
                     </input>
                     <img src={pass} alt="pass"></img>
                 </div>
-                <label className="error">
+                <label className="error-pass">
                     {error.password?error.password:""}
                 </label>
                 {/* <div className="signin__form__pass-conf">

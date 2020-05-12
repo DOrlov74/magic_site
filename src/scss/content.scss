@@ -30,7 +30,7 @@
         height: 100%;
         &__text {
             text-align: center;
-            animation: moveInLeft 2s ease-out 1s;
+            animation: moveInLeft 2s ease-out;
             animation-fill-mode: both;
         }
         &__price {
@@ -46,6 +46,8 @@
                 border-radius: 5rem;
                 padding: 1.5rem 3rem;
                 box-shadow: 5px 5px 5px $menu-text-color;
+                /* animation: moveInBottom 2s ease-out;
+                animation-fill-mode: both; */
             }
             &:hover {   
                 box-shadow: 5px 10px 10px $menu-text-color;
