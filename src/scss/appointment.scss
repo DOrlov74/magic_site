@@ -201,7 +201,10 @@
 .error {
     &-name,
     &-mail,
-    &-pass{
+    &-pass,
+    &-tel,
+    &-data,
+    &-hour{
         display: block;
         height: 1.5rem;
         color: $error-color;

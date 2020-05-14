@@ -9,12 +9,14 @@ class UserProvider extends Component {
         this.unsubscribeFromAuth=auth.onAuthStateChanged(
             user=>this.setState({user})
         );
+        console.log(this.state.user);
     };
     componentWillUnmount=()=>{
         this.unsubscribeFromAuth();
     };
     render(){
         const {user}=this.state;
+        console.log('in UserProvider ', user);
         const {children}=this.props;
         return (
             <UserContext.Provider value={user}>

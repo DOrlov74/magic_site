@@ -43,7 +43,7 @@ class AppointmentForm extends Component {
                         onChange={onChange} required>
                     </input>
                 </div>
-                <label className="error">
+                <label className="error-name">
                     {error.name?error.name:""}
                 </label>              
                 <div className={`appointment__form__tel`}>
@@ -57,7 +57,7 @@ class AppointmentForm extends Component {
                     </input>
                     <img src={phone} alt="phone"></img>
                 </div>
-                <label className="error">
+                <label className="error-tel">
                     {error.tel?error.tel:""}
                 </label>
                 <div className={`appointment__form__mail`}>
@@ -72,7 +72,7 @@ class AppointmentForm extends Component {
                     </input>
                     <img src={mail} alt="mail"></img>
                 </div>
-                <label className="error">
+                <label className="error-mail">
                     {error.email?error.email:""}
                 </label>
                 <div className={`appointment__form__data`}>
@@ -85,7 +85,7 @@ class AppointmentForm extends Component {
                     <DatePicker 
                         onChange={this.onDateChange}/>:''}
                 </div>
-                <label className="error">
+                <label className="error-data">
                     {error.date?error.date:""}
                 </label>
                 <div className={`appointment__form__hour`}>
@@ -103,7 +103,7 @@ class AppointmentForm extends Component {
                     </select>
                     <img src={clock} alt="clock"></img>
                 </div>
-                <label className="error">
+                <label className="error-hour">
                     &nbsp;{error.hour?error.hour:""}
                 </label>
                 <button 

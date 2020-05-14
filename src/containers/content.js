@@ -3,6 +3,7 @@ import Appointment from './appointment';
 import Promo from '../components/promo';
 import '../scss/content.scss';
 import { Route, Switch } from 'react-router-dom';
+import { UserContext } from '../components/user-provider';
 
 const Content=()=>{
     return (
@@ -12,7 +13,9 @@ const Content=()=>{
                     <Promo parent='content' price='25'/>
                 </Route>
                 <Route exact path='/appointment'>
-                    <Appointment/>
+                    <UserContext.Consumer>
+                        {user=>(<Appointment {...user}/>)}
+                    </UserContext.Consumer>
                 </Route>
             </Switch>
         </div>

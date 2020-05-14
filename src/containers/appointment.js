@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import '../scss/appointment.scss';
 import expand from '../img/expand_white.svg';
 //import calendar from '../img/calendar_white.svg';
@@ -8,6 +8,7 @@ import {db} from '../components/firebase';
 import ReactFormInputValidation from 'react-form-input-validation';
 import {signUp, logIn} from '../components/auth';
 import {auth} from '../components/firebase';
+import {UserContext} from '../components/user-provider';
 
 export default class Appointment extends Component {
     constructor(props) {
@@ -188,7 +189,8 @@ export default class Appointment extends Component {
                 Comp=SignInForm;
             break;
             case "appointment":
-                title="Marcações";
+                const {user}=this.props;
+                title=`${user.displayName}, escolha a data, por favor`;
                 Comp=AppointmentForm;
             break;
             default:
@@ -197,6 +199,19 @@ export default class Appointment extends Component {
             return (
                     {title, Comp}
             );
+    };
+    componentDidMount(){
+        const {user}=this.props;
+        console.log('in component did mount', user);
+         if (user!==undefined) {
+            this.setState({
+                ...this.state,
+                mode:'appointment'});
+        } else {
+            this.setState({
+                ...this.state,
+                mode:'signup'});
+        }; 
     };
 
     render(){
