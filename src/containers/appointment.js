@@ -200,21 +200,20 @@ export default class Appointment extends Component {
                     {title, Comp}
             );
     };
-    componentDidUpdate(prevProps){
-        if (this.props.displayName!==prevProps.displayName)
+    static getDerivedStateFromProps(props, state){
+        if (props.displayName!==state.fields.name && props!==undefined)
         {
-            const {displayName}=this.props;
-            console.log('in component did update', displayName);
+            const {displayName}=props;
+            console.log('in get Derived State From Props', displayName);
             if (displayName!==undefined) {
-                this.setState({
-                    ...this.state,
+                return({
                     mode:'appointment'});
             } else {
-                this.setState({
-                    ...this.state,
+                return({
                     mode:'signup'});
             }; 
         };
+        return null;
     };
 
     render(){

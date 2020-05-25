@@ -33,7 +33,7 @@ class AppointmentForm extends Component {
             <form 
                 onSubmit={onSubmit}
                 className={`appointment__form`}>
-                <div className={`appointment__form__name`}>
+                {/* <div className={`appointment__form__name`}>
                     <label htmlFor="nameInput">Nome</label>
                     <input type="text" 
                         id="nameInput"
@@ -74,7 +74,7 @@ class AppointmentForm extends Component {
                 </div>
                 <label className="error-mail">
                     {error.email?error.email:""}
-                </label>
+                </label> */}
                 <div className={`appointment__form__data`}>
                     <label htmlFor="dateInput">Data</label>
                     <label id="dateInput"
