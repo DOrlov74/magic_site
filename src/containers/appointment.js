@@ -189,8 +189,8 @@ export default class Appointment extends Component {
                 Comp=SignInForm;
             break;
             case "appointment":
-                const {user}=this.props;
-                title=`${user.displayName}, escolha a data, por favor`;
+                const {displayName}=this.props;
+                title=`${displayName}, escolha a data, por favor`;
                 Comp=AppointmentForm;
             break;
             default:
@@ -200,18 +200,21 @@ export default class Appointment extends Component {
                     {title, Comp}
             );
     };
-    componentDidMount(){
-        const {user}=this.props;
-        console.log('in component did mount', user);
-         if (user!==undefined) {
-            this.setState({
-                ...this.state,
-                mode:'appointment'});
-        } else {
-            this.setState({
-                ...this.state,
-                mode:'signup'});
-        }; 
+    componentDidUpdate(prevProps){
+        if (this.props.displayName!==prevProps.displayName)
+        {
+            const {displayName}=this.props;
+            console.log('in component did update', displayName);
+            if (displayName!==undefined) {
+                this.setState({
+                    ...this.state,
+                    mode:'appointment'});
+            } else {
+                this.setState({
+                    ...this.state,
+                    mode:'signup'});
+            }; 
+        };
     };
 
     render(){
